@@ -15,7 +15,37 @@
 | Gradient Boosting  | 0.97     | 0.97     | 1.00    |
 
 ## Структура проекта
-layout-quality-analyzer/ │ ├── src/ │ ├── init.py │ ├── model.py │ ├── data_loader.py │ └── train.py │ ├── data/ │ └── sample_data.csv │ ├── requirements.txt ├── main.py ├── Dockerfile ├── README.md └── .gitignore
+layout-quality-analyzer/
+│
+├── data/
+│   ├── raw/
+│   │   ├── good.json
+│   │   └── bad.json
+│   └── processed/
+│       └── features.csv          # После извлечения признаков
+│
+├── src/
+│   ├── __init__.py
+│   ├── data_loader.py            # Загрузка JSON, декодирование HTML
+│   ├── feature_extractor.py      # Извлечение признаков из HTML
+│   ├── preprocessing.py          # Очистка, удаление корреляций, стандартизация
+│   ├── model.py                  # Определение моделей
+│   ├── train.py                  # Обучение, оценка, кросс-валидация
+│   ├── evaluation.py             # Сравнение метрик, важность признаков
+│   └── visualization.py          # Визуализация: корреляции, важность, боксплоты
+│
+├── notebooks/
+│   └── exploratory_analysis.ipynb # Для анализа, визуализации, экспериментов
+│
+├── tests/                        # (опционально)
+│   └── test_features.py
+│
+├── requirements.txt
+├── main.py                       # Запуск основного пайплайна
+├── README.md
+├── .gitignore
+├── Dockerfile
+└── .dockerignore                
 
 ## Установка и запуск
 
